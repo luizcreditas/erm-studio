@@ -1,0 +1,26 @@
+{
+    "name": "POC-Postgres-connector-v2",
+    "config": {
+      "connector.class": "PostgresCdcSource",
+      "name": "POC-Postgres-connector",
+      "database.hostname": "poc-de-debezium.cgdai1b1yreu.us-east-1.rds.amazonaws.com",
+      "database.port": "5432",
+      "database.user": "postgres",
+      "database.password": "4H7US?Nq$wR",
+      "database.dbname": "debezium",
+      "database.server.name": "dev.debeziumpoc",
+      "database.sslmode": "disable",
+      "snapshot.mode": "exported",
+      "event.processing.failure.handling.mode": "fail",
+      "output.data.format": "AVRO",
+      "after.state.only": "true",
+      "json.output.decimal.format": "NUMERIC",
+      "plugin.name": "pgoutput",
+      "tombstones.on.delete": "true",      
+      "heartbeat.interval.ms": "30000",
+      "heartbeat.action.query": "insert into public.debezium_heartbeat (id, last_heartbeat) values (1, NOW()) on conflict (id) do update  last_heartbeat = NOW()",
+      "tasks.max": "1",
+      "kafka.api.secret": "/ctjjs4CYD8olN08YT8OlWhitLJGZEXhbCLiytHLj/gp6qZSe77hfSLnNHUytIyy",
+      "kafka.api.key": "XDKUC2PPZGR2LU65"
+    }
+  }
